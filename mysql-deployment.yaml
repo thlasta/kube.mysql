@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  namespace: databases
+  labels:
+    app: mysql
+spec:
+  selector:
+    matchLabels:
+      app: databases
+      tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: databases
+        tier: mysql
+    spec:
+      containers:
+        - image: tobi312/rpi-mariadb:10.3
+          name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+      nodeSelector:
+        kubernetes.io/os: linux
+        kubernetes.io/role: worker
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-2-pvc
