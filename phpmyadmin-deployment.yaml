@@ -20,6 +20,13 @@ spec:
           image: ebspace/armhf-phpmyadmin:latest
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: 500m
+              memory: 250M
+            limits:
+              cpu: 500m
+              memory: 250M
           env:
             - name: PMA_HOST
               value: mysql-service
