@@ -4,6 +4,15 @@ metadata:
   name: phpmyadmin-http-ingress
   namespace: databases
 spec:
-  backend:
-    serviceName: phpmyadmin-service
-    servicePort: 80
+  ingressClassName: nginx
+  rules:
+    - host: phpmyadmin.hlasta.home
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: phpmyadmin-service
+                port:
+                  number: 80
