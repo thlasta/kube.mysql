@@ -1,6 +1,4 @@
 # kube.mysql
-
-# kube.wordp
 echo "# kube.mysql" >> README.md
 git init
 git add README.md
