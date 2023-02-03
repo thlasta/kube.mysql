@@ -22,5 +22,5 @@ git push --all
 kubectl apply -f mysql/
 
 # Namespace "mysql" anlegen
-kubectl create namespace mysql
+kubectl create namespace databases
 
