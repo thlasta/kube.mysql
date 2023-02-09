@@ -28,10 +28,10 @@ spec:
               cpu: 500m
               memory: 250M
           env:
-            - name: PMA_HOST
-              value: "10.42.3.25"
-            - name: PMA_PORT
-              value: "3306"
+            - name: PMA_HOSTS
+              value: "10.42.3.25","10.42.2.133"
+            - name: PMA_PORTS
+              value: "3306","3306"
             - name: PMA_USER
               value: "root"
             - name: PMA_PASSWORD
