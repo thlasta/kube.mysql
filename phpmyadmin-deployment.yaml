@@ -29,9 +29,9 @@ spec:
               memory: 250M
           env:
             - name: PMA_HOSTS
-              value: "10.42.3.25","10.42.2.133"
+              value: "10.42.3.25;10.42.2.133"
             - name: PMA_PORTS
-              value: "3306","3306"
+              value: "3306;3306"
             - name: PMA_USER
               value: "root"
             - name: PMA_PASSWORD
