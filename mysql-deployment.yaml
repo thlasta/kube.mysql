@@ -38,6 +38,7 @@ spec:
       nodeSelector:
         kubernetes.io/os: linux
         kubernetes.io/role: worker
+        kubernetes.io/hostname: hlasta-pi-143
       volumes:
         - name: config-volume
           configMap:
