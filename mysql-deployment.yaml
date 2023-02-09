@@ -33,7 +33,7 @@ spec:
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
-            - name: mysql-replica-config
+            - name: config-volume
               mountPath: /etc/mysql/mariadb.conf.d
       nodeSelector:
         kubernetes.io/os: linux
