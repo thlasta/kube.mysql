@@ -56,8 +56,8 @@ data:
     # Both location gets rotated by the cronjob.
     # Be aware that this log type is a performance killer.
     # Recommend only changing this at runtime for short testing periods if needed!
-    #general_log_file       = /var/log/mysql/mysql.log
-    #general_log            = 1
+    general_log_file       = /var/log/mysql/mysql.log
+    general_log            = 1
     
     # When running under systemd, error logging goes via stdout/stderr to journald
     # and when running legacy init error logging goes to syslog due to
@@ -74,9 +74,9 @@ data:
     # The following can be used as easy to replay backup logs or for replication.
     # note: if you are setting up a replication slave, see README.Debian about
     #       other settings you may need to change.
-    server-id              = 1
+    #server-id              = 1
     #log_bin                = /var/log/mysql/mysql-bin.log
-    expire_logs_days       = 10
+    #expire_logs_days       = 10
     #max_binlog_size        = 100M
     
     #
@@ -107,7 +107,7 @@ data:
     # Read the manual for more InnoDB related options. There are many!
     # Most important is to give InnoDB 80 % of the system RAM for buffer use:
     # https://mariadb.com/kb/en/innodb-system-variables/#innodb_buffer_pool_size
-    #innodb_buffer_pool_size = 8G
+    innodb_buffer_pool_size = 8G
     
     # this is only for embedded server
     [embedded]
