@@ -33,10 +33,17 @@ spec:
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
+            - name: config-1-volume
+              mountPath: /etc/mysql/mariadb.conf.d
       nodeSelector:
         kubernetes.io/os: linux
         kubernetes.io/role: worker
       volumes:
+        - name: config-volume
+          configMap:
+            name: mysql-replica-config
+            defaultMode: 420
+            optional: true
         - name: mysql-persistent-storage
           persistentVolumeClaim:
             claimName: mysql-2-pvc
